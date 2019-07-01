@@ -189,7 +189,7 @@ class FreshBooksApi {
         }
         else
         {
-            $response = json_decode(json_encode(simplexml_load_string($result)), true);
+            $response = json_decode(json_encode(trim(simplexml_load_string($result)), true);
             $this->_success = ($response['@attributes']['status'] == 'ok');
         }
 
