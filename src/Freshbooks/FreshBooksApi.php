@@ -189,7 +189,14 @@ class FreshBooksApi {
         }
         else
         {
-            $response = json_decode(json_encode(trim(simplexml_load_string($result)), true);
+            try {
+                $response = json_decode(json_encode(simplexml_load_string($result)), true);
+            } catch (\Throwable $e) {
+                $filename = 'XMLErr_' . date('m_d_Y_H_i_s');
+                $result = file_put_contents('/tmp/'.$filename.'.txt', $result);
+                $response = ['error'=>'XML Parse Error'];
+                throw new \Exception('Invalid FB XML Response | '.$filename);
+            }
             $this->_success = ($response['@attributes']['status'] == 'ok');
         }
 
