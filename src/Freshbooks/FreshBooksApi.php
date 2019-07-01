@@ -190,7 +190,7 @@ class FreshBooksApi {
         else
         {
             try {
-                $response = json_decode(json_encode(simplexml_load_string($result)), true);
+                $response = json_decode(json_encode(simplexml_load_string(trim($result))), true);
             } catch (\Throwable $e) {
                 $filename = 'XMLErr_' . date('m_d_Y_H_i_s');
                 $result = file_put_contents('/tmp/'.$filename.'.txt', $result);
