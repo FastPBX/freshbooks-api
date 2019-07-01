@@ -1,5 +1,5 @@
 {
-    "name": "rtconner/freshbooks-api",
+    "name": "FastPBX/freshbooks-api",
     "description": "Wrapper to the FreshBooks API",
     "license": "MIT",
 	"keywords": ["freshbooks", "api"],
